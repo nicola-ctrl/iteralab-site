@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IteraLab — Learn How Europe Really Works</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#1e3a2f;
+  --green2:#253d30;
+  --gold:#c1aa8c;
+  --cream:#f4efe6;
+  --sand:#ddd5c4;
+  --white:#fff;
+  --text:#1a1a1a;
+  --muted:#555;
+  --fh:'Bebas Neue',sans-serif;
+  --fb:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--white);color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%;height:auto}
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--white);border-bottom:1px solid rgba(0,0,0,.07);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;height:90px;
+}
+/* Logo */
+.logo{display:flex;align-items:center}
+.logo-img{height:72px;width:auto;display:block}
+.foot-logo-img{height:56px;width:auto;display:block;mix-blend-mode:multiply}
+.foot-logo{display:flex;align-items:center}
+nav ul{list-style:none;display:flex;gap:2.8rem}
+nav ul a{font-size:1rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--text);transition:color .2s}
+nav ul a:hover{color:var(--gold)}
+/* ── SHARED ── */
+.lbl{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.85rem}
+.hd{font-family:var(--fh);font-weight:900;text-transform:uppercase;color:var(--green);line-height:.94}
+.btn{display:inline-block;font-family:var(--fh);font-size:.9rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.9rem 2rem;border:2px solid;transition:background .2s,color .2s;cursor:pointer}
+.btn-dark{background:var(--green);color:var(--white);border-color:var(--green)}
+.btn-dark:hover{background:transparent;color:var(--green)}
+.btn-gold{background:var(--gold);color:var(--white);border-color:var(--gold)}
+.btn-gold:hover{background:transparent;color:var(--gold)}
+/* ── HERO ──
+   Left col ~42%: headline, body, button
+   Right col ~58%: illustration flush to right edge
+*/
+#hero{
+  display:grid;
+  grid-template-columns:45% 55%;
+  align-items:start;
+  padding:6rem 5% 5rem;
+  gap:2%;
+  background:var(--white);
+  min-height:auto;
+}
+#hero .hero-text h1{font-family:var(--fh);font-size:clamp(3rem,5vw,5.5rem);font-weight:900;letter-spacing:.01em;line-height:.92;text-transform:uppercase;color:var(--green);margin-bottom:1.1rem}
+#hero .hero-text h1 em{font-style:normal;color:var(--gold)}
+#hero .hero-text p{font-family:var(--fb);font-size:1.1rem;line-height:1.65;color:var(--muted);max-width:420px;margin-bottom:1.7rem}
+#hero .hero-img{display:flex;flex-direction:column;align-items:flex-start;gap:2.1rem}
+#hero .hero-img img{width:100%}
+#hero .hero-text p:last-of-type{margin-bottom:1.9rem}
+.hero-dates{margin-bottom:0;width:100%}
+.hero-dates ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;width:100%;gap:.7rem 1.6rem}
+.hero-dates li{font-family:var(--fb);font-size:.95rem;color:var(--text);font-weight:600;position:relative;padding-left:1rem}
+.hero-dates li::before{content:'';position:absolute;left:0;top:.55em;width:6px;height:6px;background:var(--gold)}
+#what .right p{margin-bottom:1.1rem}
+#why .copy p{margin-bottom:1rem}
+#why .copy p:last-child{margin-bottom:0}
+/* ── WHAT THIS IS ──
+   Full-width: label + heading on top row (same pattern as How It Works / Our Lecturers)
+   Below: body copy, left-aligned, max-width for readability
+*/
+#what{
+  background:var(--cream);
+  padding:4rem 5%;
+}
+#what .what-top{margin-bottom:1.8rem}
+#what .what-top .hd{font-size:clamp(1.7rem,3.2vw,3rem);max-width:900px}
+#what .hd em{font-style:normal;color:var(--gold)}
+#what .right{max-width:760px}
+#what .right p{font-family:var(--fb);font-size:1.1rem;line-height:1.7;color:var(--muted);margin-bottom:1rem}
+#what .right p:last-child{margin-bottom:0}
+#what .right strong{color:var(--text)}
+/* ── PILLARS ──
+   3 equal columns separated by vertical lines.
+   Each column: icon on left (~70px), title+body stacked on right.
+*/
+#pillars{
+  background:var(--white);
+  padding:3.5rem 5%;
+}
+.pillars-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+}
+.pillar{
+  display:grid;
+  grid-template-columns:70px 1fr;
+  grid-template-rows:auto 1fr;
+  column-gap:.9rem;
+  padding-right:2.5rem;
+  border-right:1px solid var(--sand);
+}
+.pillar+.pillar{padding-left:2.5rem}
+.pillar:last-child{border-right:none;padding-right:0}
+.pillar-icon{grid-column:1;grid-row:1/3;width:66px;height:66px;object-fit:contain;align-self:start;margin-top:.1rem}
+.pillar h3{grid-column:2;grid-row:1;font-family:var(--fh);font-size:1.1rem;font-weight:900;letter-spacing:.07em;text-transform:uppercase;color:var(--green);align-self:end;padding-bottom:.3rem}
+.pillar p{grid-column:2;grid-row:2;font-family:var(--fb);font-size:1.05rem;line-height:1.6;color:var(--muted)}
+/* ── HOW IT WORKS ──
+   Full-width: label + big heading on top row
+   Bottom row: left = 4 numbered steps (2x2); right = building illustration, vertically centered, shown in full
+*/
+#how{
+  background:var(--cream);
+  padding:4rem 5%;
+}
+#how .how-top{margin-bottom:1.8rem}
+#how .how-top .hd{font-size:clamp(1.7rem,3.2vw,3rem)}
+#how .how-body{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(380px,0.95fr);
+  gap:2.8rem;
+  align-items:center;
+}
+.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8rem 1.4rem;align-items:start}
+.step{display:flex;flex-direction:column;gap:.45rem}
+.step .num{font-family:var(--fh);font-size:1.5rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:0}
+.step h4{font-family:var(--fh);font-size:1rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:var(--green);margin-bottom:0}
+.step p{font-family:var(--fb);font-size:1.02rem;line-height:1.62;color:var(--muted)}
+#how .how-body .bld{display:flex;justify-content:center;align-items:center}
+#how .how-body .bld img{width:100%;max-width:640px}
+/* ── OUR LECTURERS ──
+   Cream band: top label+heading, intro copy with speaker-category list,
+   then a grid of lecturer cards (placeholders until profiles are confirmed).
+*/
+#lecturers{
+  background:var(--cream);
+  padding:4rem 5%;
+}
+#lecturers .lect-top{margin-bottom:1.8rem}
+#lecturers .lect-top .hd{font-size:clamp(1.7rem,3.2vw,3rem);max-width:900px}
+.lect-intro{max-width:760px}
+.lect-intro p{font-family:var(--fb);font-size:1.08rem;line-height:1.72;color:var(--muted);margin-bottom:1.1rem}
+.lect-cat-label{font-family:var(--fb);font-size:1.05rem;font-weight:600;color:var(--text);margin:1.6rem 0 1rem}
+.lect-cat-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem 2rem;max-width:760px}
+.lect-cat-list li{font-family:var(--fb);font-size:.98rem;line-height:1.5;color:var(--muted);position:relative;padding-left:1rem}
+.lect-cat-list li::before{content:'';position:absolute;left:0;top:.5em;width:6px;height:6px;background:var(--gold)}
+.lect-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.6rem}
+.lect-card{background:var(--white);border:1px solid var(--sand);padding:1.6rem 1.3rem;display:flex;flex-direction:column;align-items:flex-start;gap:.6rem}
+.lect-photo{width:62px;height:62px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;color:rgba(30,58,47,.4)}
+.lect-tag{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.lect-soon-copy{font-family:var(--fb);font-size:.92rem;line-height:1.5;color:var(--muted)}
+/* ── WHY IT MATTERS ──
+   3 columns: left ~32% heading, mid ~33% copy, right ~35% map
+*/
+#why{
+  background:var(--white);
+  padding:4rem 5%;
+}
+#why .why-top{margin-bottom:1.5rem}
+#why .hd{font-size:clamp(1.55rem,2.7vw,2.5rem)}
+#why .hd em{font-style:normal;color:var(--gold)}
+#why .why-body{display:grid;grid-template-columns:minmax(0,0.95fr) minmax(560px,1.15fr);gap:1.8rem;align-items:center}
+#why .copy p{font-family:var(--fb);font-size:1.08rem;line-height:1.72;color:var(--muted)}
+#why .copy a{color:var(--gold);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+#why .map{display:flex;justify-content:flex-end;padding-left:0}
+#why .map img{width:100%;max-width:900px;margin-top:-60px}
+/* ── LOCATION ──
+   Dark green band.
+   Left: label + 2-line heading.
+   Right: thin vertical divider line, then "Want to know more?" + gold button.
+*/
+#location{
+  background:var(--green);
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:0;
+  padding:3.2rem 5%;
+}
+#location .lbl{color:var(--gold)}
+#location .hd{font-size:clamp(1.3rem,2.5vw,2.4rem);color:var(--white)}
+.loc-right{
+  display:flex;flex-direction:column;align-items:flex-start;gap:.9rem;
+  border-left:1px solid rgba(255,255,255,.22);
+  padding-left:4rem;
+  margin-left:4rem;
+}
+.loc-right p{font-size:.95rem;color:rgba(255,255,255,.6);white-space:nowrap}
+/* ── FOOTER ──
+   Cream/off-white bg.
+   Left: logo mark + ITERA LAB text.
+   Center: LinkedIn (filled dark green circle) + Email (filled dark green circle).
+   Right: copyright.
+*/
+footer{
+  background:var(--cream);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.4rem 5%;
+}
+.foot-logo{display:flex;align-items:center}
+.foot-icons{display:flex;gap:.7rem}
+.foot-icons a{
+  width:34px;height:34px;background:var(--green);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--white);
+  transition:background .2s;
+}
+.foot-icons a:hover{background:var(--gold)}
+.foot-copy{font-size:.7rem;color:var(--muted)}
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:none}
+/* ── SCROLL OFFSET ── */
+#what,#how,#lecturers,#why,#location{scroll-margin-top:0px}
+.hero-actions{display:flex;gap:20px;flex-wrap:wrap;align-items:center;width:100%}
+.hero-actions .btn{white-space:nowrap;flex:1;text-align:center;min-width:200px}
+@media(max-width:860px){.hero-actions{gap:10px}.hero-actions .btn{width:100%;text-align:center}}
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  nav{height:auto;padding:.75rem 5%;flex-wrap:wrap;gap:.5rem}
+  nav ul{gap:.4rem;flex-wrap:nowrap;width:100%;justify-content:space-between}
+  nav ul a{font-size:.56rem;letter-spacing:.02em;white-space:nowrap}
+  .logo-img{height:56px}
+  #what,#how,#lecturers,#why,#location{scroll-margin-top:55px}
+  #hero{grid-template-columns:1fr;padding:2.5rem 5%}
+  #what{padding:2.5rem 5%}
+  .pillars-grid{grid-template-columns:1fr;gap:1.8rem}
+  .pillar{border-right:none;border-bottom:1px solid var(--sand);padding:0 0 1.8rem!important}
+  .pillar:last-child{border-bottom:none;padding-bottom:0!important}
+  .steps{grid-template-columns:1fr;gap:1.2rem}
+  #how .how-body{grid-template-columns:1fr;gap:2rem}
+  .lect-cat-list{grid-template-columns:1fr}
+  .lect-grid{grid-template-columns:1fr}
+  #why .why-body{grid-template-columns:1fr}
+  #location{grid-template-columns:1fr;gap:2rem}
+  .loc-right{border-left:none;padding-left:0;margin-left:0;border-top:1px solid rgba(255,255,255,.22);padding-top:1.5rem}
+  footer{flex-wrap:wrap;gap:1rem;justify-content:center;text-align:center}
+  .foot-copy{width:100%;text-align:center}
+}
+</style>
+</head>
+<body>
+<!-- ITERALAB V4 CLEAR FORMS - application links point to real form pages -->
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo"><img src="assets/images/img_75b46e2a3f.png" alt="IteraLab" class="logo-img"/></a>
+<ul>
+<li><a href="#what">What It Is</a></li>
+<li><a href="#how">How It Works</a></li>
+<li><a href="#lecturers">Our Lecturers</a></li>
+<li><a href="#why">Why It Matters</a></li>
+</ul>
+  
+</nav>
+<!-- HERO: text left, illustration right -->
+<section id="hero">
+  <div class="hero-text reveal">
+    <h1>Learn How Europe<br><em>Really Works.</em></h1>
+    <p>Through the IteraLab Academy, you will discover in depth the decision-making and recruiting processes — who hires, how careers begin, and how to position yourself within the Brussels context.</p>
+<p>Our programmes are designed for those who want to transform an interest in Europe into a concrete professional trajectory: understanding how EU decisions are made, how the Brussels job market works, which profiles are valued, and how to position yourself for an internship, traineeship or junior role.</p>
+<p>Built by professionals with long-standing experience in EU careers, IteraLab gives participants direct exposure to the people, places and organisations that shape the European policy environment.</p>
+  </div>
+  <div class="hero-img reveal" style="transition-delay:.12s">
+    <img src="assets/images/img_b566f1cad6.png" alt="People meeting in Brussels"/>
+    <div class="hero-dates">
+      <p class="lbl" style="margin-bottom:1.1rem">Spring Academy 2027 — Session Weeks</p>
+      <ul>
+        <li>March 8–12</li>
+        <li>April 12–16</li>
+        <li>May 24–28</li>
+        <li>June 14–18</li>
+      </ul>
+    </div>
+    <div class="hero-actions">
+      <a href="student-application.html" class="btn btn-dark">Student Application</a>
+      <a href="mailto:nicola@iteralab.eu" class="btn btn-gold">Request Information</a>
+    </div>
+    <p style="font-size:0.85rem; color:#777;">Applications are reviewed on a rolling basis.</p>
+  </div>
+</section>
+<!-- WHAT THIS IS: heading left, copy right -->
+<section id="what">
+  <div class="what-top reveal">
+    <p class="lbl">What This Is</p>
+    <h2 class="hd">Not a course. A practical introduction to <em>the Brussels ecosystem.</em></h2>
+  </div>
+  <div class="right reveal" style="transition-delay:.1s">
+    <p>IteraLab is designed to make the Brussels ecosystem understandable both as a decision-making environment and as a professional landscape.</p>
+    <p>Brussels is one of the world's most important centres for public policy, regulation, interest representation, institutional communication, European journalism, EU law and access to EU funds. Yet for those looking at it from the outside, it can appear complex, competitive and opaque.</p>
+    <p>IteraLab helps participants decode that system in practice. You will understand how roles are structured across EU institutions, consultancies, trade associations, NGOs, companies, law firms, public-affairs teams, media outlets and organisations working on EU funding.</p>
+    <p>You will also explore how careers actually begin: which profiles are in demand, how recruitment works, which skills matter, and how to make choices that are coherent with the real dynamics of the Brussels market.</p>
+    <p>This is not limited to classroom learning. It is an applied experience built around direct contact with professionals, practical orientation, institutional visits, networking and the foundations of a long-term community.</p>
+  </div>
+</section>
+<!-- PILLARS: 3 columns, each icon-left + title/copy-right -->
+<section id="pillars">
+  <div class="pillars-grid">
+    <div class="pillar reveal">
+      <img class="pillar-icon" src="assets/images/img_269500d779.png" alt="Learn"/>
+      <h3>Learn</h3>
+      <p>Understand how the European ecosystem really works: EU institutions, consultancies, associations, NGOs, companies, media, EU funding actors, law firms and public-affairs teams — and how they interact within the Brussels landscape.</p>
+    </div>
+    <div class="pillar reveal" style="transition-delay:.1s">
+      <img class="pillar-icon" src="assets/images/img_1a12644312.png" alt="Experience"/>
+      <h3>Experience</h3>
+      <p>Go beyond formal descriptions and experience Brussels directly, through sessions, visits and exchanges with professionals working in the places where European decisions, strategies and careers take shape.</p>
+    </div>
+    <div class="pillar reveal" style="transition-delay:.2s">
+      <img class="pillar-icon" src="assets/images/img_fb4730e6b8.png" alt="Engage"/>
+      <h3>Engage</h3>
+      <p>Engage with practitioners, peers and the wider IteraLab network, building relationships that continue beyond the programme through follow-ups, alumni connections and access to a growing professional community.</p>
+    </div>
+  </div>
+</section>
+<!-- HOW IT WORKS: label+heading top, then 4 steps in a row, then building illustration full-width below -->
+<section id="how">
+  <div class="how-top reveal">
+    <p class="lbl">How It Works</p>
+    <h2 class="hd">A structured immersion into the Brussels ecosystem.</h2>
+    <div class="how-intro reveal" style="transition-delay:.08s"><span style="display:inline-block;padding:.45rem .8rem;border:1px solid var(--sand);background:rgba(255,255,255,.55);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--green);margin-top:.9rem">Clarity, access, and direction — not just exposure.</span></div>
+  </div>
+  <div class="how-body">
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num">01</div>
+        <h4>Sessions</h4>
+        <p>Conversations with current and former EU professionals, practitioners and specialists across institutions, public affairs, advocacy, journalism, EU funding, law, communications and the private sector.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.08s">
+        <div class="num">02</div>
+        <h4>Workshops</h4>
+        <p>Focused sessions to understand how to enter the Brussels job market: recruitment dynamics, required profiles, application strategies, positioning, networking and career planning.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.16s">
+        <div class="num">03</div>
+        <h4>Visits</h4>
+        <p>Direct exposure to the places where the European ecosystem operates: EU institutions, consultancies, associations, NGOs, companies, media environments and relevant organisations.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.24s">
+        <div class="num">04</div>
+        <h4>Community</h4>
+        <p>The programme is designed to continue beyond the days spent in Brussels, through alumni connections, speaker follow-ups, peer relationships and a growing network of professionals.</p>
+      </div>
+    </div>
+    <div class="bld reveal" style="transition-delay:.3s">
+      <img src="assets/images/img_658dcf5725.png" alt="Brussels institutions illustration"/>
+    </div>
+  </div>
+</section>
+<!-- OUR LECTURERS: label+heading top, intro copy + speaker categories, then lecturer cards (placeholders until profiles are confirmed) -->
+<section id="lecturers">
+  <div class="lect-top reveal">
+    <p class="lbl">Our Lecturers</p>
+    <h2 class="hd">Learn from the people who work inside the European ecosystem.</h2>
+  </div>
+  <div class="lect-intro reveal" style="transition-delay:.08s">
+    <p>IteraLab lecturers are EU professionals with direct experience in the institutions, NGOs, European associations, public-affairs agencies, EU journalism, EU funding, law, advocacy, strategic communications, policy analysis and the private sector.</p>
+    <p>They bring participants beyond formal descriptions of European careers and into the reality of how Brussels works: how decisions are prepared, how organisations influence policy, how information circulates, how opportunities emerge, and how young professionals can build credible paths into the ecosystem.</p>
+    <p class="lect-cat-label">Our speakers include professionals from:</p>
+    <ul class="lect-cat-list">
+      <li>EU institutions and former institutional officials</li>
+      <li>NGOs and civil-society organisations</li>
+      <li>European associations and interest-representation bodies</li>
+      <li>Public-affairs, advocacy and lobbying agencies</li>
+      <li>EU journalism and Brussels-based media</li>
+      <li>EU funding and project-development specialists</li>
+      <li>Law firms, consultancies and strategic communications experts</li>
+      <li>Private companies and in-house public-policy teams</li>
+    </ul>
+  </div>
+  <p class="lbl" style="margin-top:2.4rem;margin-bottom:1rem">A Selection of Our Faculty</p>
+  <div class="lect-grid">
+    <div class="lect-card reveal">
+      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
+      <p class="lect-tag">Profile coming soon</p>
+      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+    </div>
+    <div class="lect-card reveal">
+      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
+      <p class="lect-tag">Profile coming soon</p>
+      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+    </div>
+    <div class="lect-card reveal">
+      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
+      <p class="lect-tag">Profile coming soon</p>
+      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+    </div>
+    <div class="lect-card reveal">
+      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
+      <p class="lect-tag">Profile coming soon</p>
+      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+    </div>
+    <div class="lect-card reveal">
+      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
+      <p class="lect-tag">Profile coming soon</p>
+      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+    </div>
+    <div class="lect-card reveal">
+      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
+      <p class="lect-tag">Profile coming soon</p>
+      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+    </div>
+    <div class="lect-card reveal">
+      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
+      <p class="lect-tag">Profile coming soon</p>
+      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+    </div>
+    <div class="lect-card reveal">
+      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
+      <p class="lect-tag">Profile coming soon</p>
+      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+    </div>
+  </div>
+</section>
+<!-- WHY IT MATTERS: heading top, then copy + map -->
+<section id="why">
+  <div class="why-top reveal">
+    <p class="lbl">Why It Matters</p>
+    <h2 class="hd">Proximity changes trajectories.</h2>
+  </div>
+  <div class="why-body">
+    <div class="copy reveal">
+      <p>Understanding Europe requires more than institutional theory. It requires understanding how decisions are made in practice, how professional roles are defined, how organisations interact, and how careers begin and develop within that environment.</p>
+      <p>For many students and young professionals, Brussels remains difficult to read from the outside. Opportunities exist, but they are not always visible. Career paths are rarely linear. The most useful information is often not found in university programmes, institutional websites or formal job descriptions.</p>
+      <p>IteraLab exists to close that gap.</p>
+      <p>By giving participants early access to the right knowledge, the right professionals and the right interpretation of the ecosystem, IteraLab helps them move with greater awareness, method, credibility and confidence.</p>
+      <p>The value of the experience is not only in the programme content. It lies in direct access to people, places, experiences and information that normally take years to understand — and in the creation of a lasting bridge between talent, ambition and opportunity.</p>
+    </div>
+    <div class="map reveal" style="transition-delay:.12s">
+      <img src="assets/images/img_efa7e894f0.png" alt="Europe network map"/>
+    </div>
+  </div>
+</section>
+<!-- LOCATION: heading left | divider | want to know more + button right -->
+<div id="location">
+  <div class="reveal">
+    <p class="lbl">Location</p>
+    <h2 class="hd">Based in Brussels.<br>Close to the institutions, firms and networks that shape Europe's professional ecosystem.</h2>
+  </div>
+  <div class="loc-right reveal">
+    <p>Do you have questions?</p>
+    <a href="mailto:nicola@iteralab.eu" class="btn btn-gold">Request Information</a>
+  </div>
+</div>
+<!-- FOOTER: logo left, social icons center, copyright right -->
+<footer>
+  <a href="#hero" class="foot-logo"><img src="assets/images/img_75b46e2a3f.png" alt="IteraLab" class="logo-img foot-logo-img"/></a>
+  <div class="foot-icons">
+    <a href="mailto:nicola@iteralab.eu" title="Email">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+    </a>
+  </div>
+  <span class="foot-copy">© 2026 IteraLab. All rights reserved.</span>
+</footer>
+<script>
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
