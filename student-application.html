@@ -94,10 +94,9 @@ h1 em{font-style:normal;color:var(--gold)}
 }
 .form-frame{
   width:100%;
-  min-height:1118px;
+  min-height:600px;
   border:0;
   background:var(--cream);
-  margin-top:-68px;
 }
 .btn{
   display:inline-block;
@@ -128,7 +127,7 @@ footer{
   .logo-img{height:56px !important;max-height:56px !important}
   .back-home-link{font-size:.72rem}
   .application-page{padding:3rem 5%}
-  .form-frame{min-height:1100px}
+  .form-frame{min-height:560px}
 }
 </style>
 </head>
@@ -148,14 +147,18 @@ footer{
     <div class="iframe-wrap">
       <iframe
         class="form-frame"
-        src="https://tally.so/r/1Ab20W?transparentBackground=1"
+        data-tally-src="https://tally.so/embed/1Ab20W?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
+        loading="lazy"
         width="100%"
-        height="1050"
+        height="600"
         frameborder="0"
         marginheight="0"
         marginwidth="0"
         title="Student Application">
       </iframe>
+      <script>
+      (function(){var d=document,w="https://tally.so/widgets/embed.js",v=function(){if(typeof Tally!=="undefined"){Tally.loadEmbeds()}else{d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc})}};if(typeof Tally!=="undefined"){v()}else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s)}})();
+      </script>
     </div>
 
     <div class="bottom-actions">

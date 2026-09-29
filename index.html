@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>IteraLab — Learn How Europe Really Works</title>
+<title>IteraLab — Spring Programme 2027 · Brussels</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -11,7 +11,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --green:#1e3a2f;
-  --green2:#253d30;
+  --hero-green:#1B402C;
   --gold:#c1aa8c;
   --cream:#f4efe6;
   --sand:#ddd5c4;
@@ -22,450 +22,708 @@
   --fb:'Inter',sans-serif;
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--white);color:var(--text);overflow-x:hidden}
+body{font-synthesis:none;font-family:var(--fb);background:var(--white);color:var(--text);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%;height:auto}
+
 /* ── NAV ── */
 nav{
   position:sticky;top:0;z-index:100;
-  background:var(--white);border-bottom:1px solid rgba(0,0,0,.07);
+  background:var(--white);border-bottom:1px solid rgba(0,0,0,.08);
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 5%;height:90px;
+  padding:0 5%;height:80px;
 }
-/* Logo */
-.logo{display:flex;align-items:center}
-.logo-img{height:72px;width:auto;display:block}
-.foot-logo-img{height:56px;width:auto;display:block;mix-blend-mode:multiply}
-.foot-logo{display:flex;align-items:center}
-nav ul{list-style:none;display:flex;gap:2.8rem}
-nav ul a{font-size:1rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--text);transition:color .2s}
-nav ul a:hover{color:var(--gold)}
-/* ── SHARED ── */
-.lbl{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.85rem}
-.hd{font-family:var(--fh);font-weight:900;text-transform:uppercase;color:var(--green);line-height:.94}
-.btn{display:inline-block;font-family:var(--fh);font-size:.9rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.9rem 2rem;border:2px solid;transition:background .2s,color .2s;cursor:pointer}
-.btn-dark{background:var(--green);color:var(--white);border-color:var(--green)}
-.btn-dark:hover{background:transparent;color:var(--green)}
-.btn-gold{background:var(--gold);color:var(--white);border-color:var(--gold)}
+.logo-img{height:60px;width:auto}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--text);transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-apply{background:var(--green);color:var(--white)!important;padding:.55rem 1.2rem}
+.nav-apply:hover{background:var(--gold)!important}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-block;
+  font-family:var(--fh);
+  font-size:.9rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  padding:.85rem 2rem;
+  cursor:pointer;
+  transition:all .2s;
+}
+.btn-gold{background:var(--gold);color:var(--white);border:2px solid var(--gold)}
 .btn-gold:hover{background:transparent;color:var(--gold)}
-/* ── HERO ──
-   Left col ~42%: headline, body, button
-   Right col ~58%: illustration flush to right edge
-*/
+.btn-outline-white{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.5)}
+.btn-outline-white:hover{border-color:var(--white)}
+.btn-green{background:var(--green);color:var(--white);border:2px solid var(--green)}
+.btn-green:hover{background:transparent;color:var(--green)}
+
+/* ── HERO ── */
 #hero{
-  display:grid;
-  grid-template-columns:45% 55%;
-  align-items:start;
-  padding:6rem 5% 5rem;
-  gap:2%;
-  background:var(--white);
-  min-height:auto;
+  background:var(--hero-green);
+  color:var(--white);
+  padding:5rem 5% 4.5rem;
+  min-height:90vh;
+  display:flex;flex-direction:column;justify-content:center;
 }
-#hero .hero-text h1{font-family:var(--fh);font-size:clamp(3rem,5vw,5.5rem);font-weight:900;letter-spacing:.01em;line-height:.92;text-transform:uppercase;color:var(--green);margin-bottom:1.1rem}
-#hero .hero-text h1 em{font-style:normal;color:var(--gold)}
-#hero .hero-text p{font-family:var(--fb);font-size:1.1rem;line-height:1.65;color:var(--muted);max-width:420px;margin-bottom:1.7rem}
-#hero .hero-img{display:flex;flex-direction:column;align-items:flex-start;gap:2.1rem}
-#hero .hero-img img{width:100%}
-#hero .hero-text p:last-of-type{margin-bottom:1.9rem}
-.hero-dates{margin-bottom:0;width:100%}
-.hero-dates ul{list-style:none;display:flex;flex-wrap:nowrap;justify-content:space-between;width:100%;gap:0;margin-top:.2rem}
-.hero-dates li{font-family:var(--fb);font-size:1.12rem;color:var(--text);font-weight:600;position:relative;padding-left:1.1rem}
-.hero-dates li::before{content:'';position:absolute;left:0;top:.6em;width:7px;height:7px;background:var(--gold)}
-#what .right p{margin-bottom:1.1rem}
-#why .copy p{margin-bottom:1rem}
-#why .copy p:last-child{margin-bottom:0}
-/* ── WHAT THIS IS ──
-   Full-width: label + heading on top row (same pattern as How It Works / Our Lecturers)
-   Below: body copy, left-aligned, max-width for readability
-*/
-#what{
-  background:var(--cream);
-  padding:4rem 5%;
+.hero-inner{max-width:920px}
+.hero-label{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1.4rem}
+.hero-h1{
+  font-family:var(--fh);
+  font-size:clamp(3.2rem,6.5vw,7.2rem);
+  line-height:.93;
+  text-transform:uppercase;
+  color:var(--white);
+  margin-bottom:1.6rem;
 }
-#what .what-top{margin-bottom:1.8rem}
-#what .what-top .hd{font-size:clamp(1.7rem,3.2vw,3rem);max-width:900px}
-#what .hd em{font-style:normal;color:var(--gold)}
-#what .right{max-width:760px}
-#what .right p{font-family:var(--fb);font-size:1.1rem;line-height:1.7;color:var(--muted);margin-bottom:1rem}
-#what .right p:last-child{margin-bottom:0}
-#what .right strong{color:var(--text)}
-/* ── PILLARS ──
-   3 equal columns separated by vertical lines.
-   Each column: icon on left (~70px), title+body stacked on right.
-*/
-#pillars{
-  background:var(--white);
-  padding:3.5rem 5%;
+.hero-sub{font-size:1.32rem;line-height:1.62;color:rgba(255,255,255,.9);max-width:640px;margin-bottom:1.6rem}
+.hero-tagline{font-family:var(--fh);font-size:1.5rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.hero-lang{font-size:1.12rem;color:rgba(255,255,255,.8);margin-top:1.6rem;font-style:italic}
+.hero-label-low{margin:2.6rem 0 1rem}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.editions{display:flex;gap:1rem;flex-wrap:wrap}
+.edition-card{border:1px solid rgba(255,255,255,.2);padding:1rem 1.4rem;flex:1;min-width:200px}
+.ed-label{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.35rem}
+.ed-dates{font-family:var(--fh);font-size:1.3rem;color:var(--white);letter-spacing:.02em}
+.ed-deadline{font-size:.78rem;color:rgba(255,255,255,.45);margin-top:.3rem}
+
+/* ── SECTIONS ── */
+section{padding:4.5rem 5%}
+.sec-label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.8rem}
+.sec-h2{font-family:var(--fh);font-size:clamp(2rem,3.8vw,3.4rem);color:var(--green);line-height:1;margin-bottom:1.6rem}
+.sec-lead{font-size:1.05rem;line-height:1.72;color:var(--muted);max-width:760px;margin-bottom:1.4rem}
+
+/* ── WHAT THIS IS ── */
+#what{background:var(--cream)}
+.what-pull{
+  font-family:var(--fh);font-size:clamp(1.4rem,2.2vw,2rem);
+  color:var(--green);border-left:3px solid var(--gold);
+  padding-left:1.3rem;margin-top:2rem;line-height:1.2;max-width:640px;
 }
-.pillars-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:0;
+
+/* ── HOW A SESSION WORKS ── */
+#how-session{background:var(--white)}
+.steps-list{max-width:800px;margin-top:1.8rem}
+.step-row{
+  display:grid;grid-template-columns:2.8rem 1fr;gap:1.2rem;
+  align-items:start;padding:1.4rem 0;border-bottom:1px solid var(--sand);
 }
-.pillar{
-  display:grid;
-  grid-template-columns:70px 1fr;
-  grid-template-rows:auto 1fr;
-  column-gap:.9rem;
-  padding-right:2.5rem;
-  border-right:1px solid var(--sand);
+.step-row:last-child{border-bottom:none}
+.step-num{font-family:var(--fh);font-size:2rem;color:var(--gold);line-height:1}
+.step-body h4{font-family:var(--fh);font-size:1.1rem;color:var(--green);letter-spacing:.04em;margin-bottom:.3rem;text-transform:uppercase}
+.step-body p{font-size:.97rem;line-height:1.65;color:var(--muted)}
+
+/* ── THE PROGRAMME ── */
+#programme{background:var(--white)}
+.programme-table{width:100%;border-collapse:collapse;margin-top:1.8rem;font-size:.95rem}
+.programme-table th{
+  font-family:var(--fh);font-size:1.15rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--white);background:var(--green);padding:.75rem 1rem;text-align:left;
 }
-.pillar+.pillar{padding-left:2.5rem}
-.pillar:last-child{border-right:none;padding-right:0}
-.pillar-icon{grid-column:1;grid-row:1/3;width:66px;height:66px;object-fit:contain;align-self:start;margin-top:.1rem}
-.pillar h3{grid-column:2;grid-row:1;font-family:var(--fh);font-size:1.1rem;font-weight:900;letter-spacing:.07em;text-transform:uppercase;color:var(--green);align-self:end;padding-bottom:.3rem}
-.pillar p{grid-column:2;grid-row:2;font-family:var(--fb);font-size:1.05rem;line-height:1.6;color:var(--muted)}
-/* ── HOW IT WORKS ──
-   Full-width: label + big heading on top row
-   Bottom row: left = 4 numbered steps (2x2); right = building illustration, vertically centered, shown in full
-*/
-#how{
-  background:var(--cream);
-  padding:4rem 5%;
+.programme-table td{padding:.9rem 1rem;border-bottom:1px solid var(--sand);color:var(--text);line-height:1.55;vertical-align:top}
+.programme-table tr:last-child td{border-bottom:none}
+.programme-table td:first-child{
+  font-weight:600;color:var(--green);white-space:nowrap;
+  font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;width:110px;
 }
-#how .how-top{margin-bottom:1.8rem}
-#how .how-top .hd{font-size:clamp(1.7rem,3.2vw,3rem)}
-#how .how-body{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(380px,0.95fr);
-  gap:2.8rem;
-  align-items:center;
+.eve{font-size:.82rem;color:var(--gold);font-style:italic}
+
+/* ── FACULTY ── */
+#faculty{background:var(--cream)}
+.faculty-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;margin-top:1.8rem}
+.f-card{border:1px solid var(--sand);padding:1.6rem;display:flex;flex-direction:column;gap:.6rem}
+.f-monogram{
+  width:56px;height:56px;border-radius:50%;background:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fh);font-size:1.1rem;color:var(--gold);letter-spacing:.05em;
+  flex-shrink:0;
 }
-.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8rem 1.4rem;align-items:start}
-.step{display:flex;flex-direction:column;gap:.45rem}
-.step .num{font-family:var(--fh);font-size:1.5rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:0}
-.step h4{font-family:var(--fh);font-size:1rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:var(--green);margin-bottom:0}
-.step p{font-family:var(--fb);font-size:1.02rem;line-height:1.62;color:var(--muted)}
-#how .how-body .bld{display:flex;justify-content:center;align-items:center}
-#how .how-body .bld img{width:100%;max-width:640px}
-/* ── OUR LECTURERS ──
-   Cream band: top label+heading, intro copy with speaker-category list,
-   then a grid of lecturer cards (placeholders until profiles are confirmed).
-*/
-#lecturers{
-  background:var(--cream);
-  padding:4rem 5%;
+.f-header{display:flex;align-items:center;gap:.9rem}
+.f-name{font-family:var(--fh);font-size:1.2rem;color:var(--green);letter-spacing:.03em}
+.f-role{font-size:.82rem;color:var(--gold);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.f-module{font-size:.78rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:.1rem}
+.f-bio{font-size:.92rem;line-height:1.65;color:var(--muted)}
+.faculty-caveat{font-size:.88rem;color:var(--muted);font-style:italic;margin-top:1.6rem;max-width:680px}
+
+/* ── PRACTICAL INFO ── */
+#practical{background:var(--cream)}
+.info-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:1.8rem;align-items:stretch}
+.info-table{width:100%;border-collapse:collapse;font-size:.93rem}
+.info-table th{
+  font-family:var(--fh);font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--white);background:var(--green);padding:.65rem .9rem;text-align:left;
 }
-#lecturers .lect-top{margin-bottom:1.8rem}
-#lecturers .lect-top .hd{font-size:clamp(1.7rem,3.2vw,3rem);max-width:900px}
-.lect-intro{max-width:760px}
-.lect-intro p{font-family:var(--fb);font-size:1.08rem;line-height:1.72;color:var(--muted);margin-bottom:1.1rem}
-.lect-cat-label{font-family:var(--fb);font-size:1.05rem;font-weight:600;color:var(--text);margin:1.6rem 0 1rem}
-.lect-cat-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem 2rem;max-width:760px}
-.lect-cat-list li{font-family:var(--fb);font-size:.98rem;line-height:1.5;color:var(--muted);position:relative;padding-left:1rem}
-.lect-cat-list li::before{content:'';position:absolute;left:0;top:.5em;width:6px;height:6px;background:var(--gold)}
-.lect-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.6rem}
-.lect-card{background:var(--white);border:1px solid var(--sand);padding:1.6rem 1.3rem;display:flex;flex-direction:column;align-items:flex-start;gap:.6rem}
-.lect-photo{width:62px;height:62px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;color:rgba(30,58,47,.4)}
-.lect-tag{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700}
-.lect-soon-copy{font-family:var(--fb);font-size:.92rem;line-height:1.5;color:var(--muted)}
-/* ── WHY IT MATTERS ──
-   3 columns: left ~32% heading, mid ~33% copy, right ~35% map
-*/
-#why{
-  background:var(--white);
-  padding:4rem 5%;
+.info-table td{padding:.75rem .9rem;border-bottom:1px solid var(--sand);line-height:1.55;vertical-align:top}
+.info-table tr:last-child td{border-bottom:none}
+.info-table td:first-child{font-weight:600;color:var(--green);font-size:.83rem;letter-spacing:.04em;width:42%}
+
+/* ── HOW TO APPLY ── */
+#apply{background:var(--white)}
+.apply-steps{display:flex;flex-direction:column;gap:1.6rem;max-width:680px;margin-top:1.8rem}
+.apply-step{display:grid;grid-template-columns:2.6rem 1fr;gap:1rem;align-items:start}
+.apply-n{font-family:var(--fh);font-size:2.2rem;color:var(--gold);line-height:1}
+.apply-step p{font-size:1.02rem;line-height:1.68;color:var(--muted);padding-top:.2rem}
+.apply-contact{margin-top:1.4rem;font-size:.95rem;color:var(--muted)}
+.apply-contact a{color:var(--green);font-weight:600}
+
+/* ── FAQ ── */
+#faq{background:var(--cream)}
+.faq-list{max-width:800px;margin-top:1.8rem}
+details{border-bottom:1px solid var(--sand)}
+details:last-child{border-bottom:none}
+summary{
+  font-weight:600;font-size:1rem;color:var(--green);
+  padding:1.1rem 0;cursor:pointer;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;
 }
-#why .why-top{margin-bottom:1.5rem}
-#why .hd{font-size:clamp(1.55rem,2.7vw,2.5rem)}
-#why .hd em{font-style:normal;color:var(--gold)}
-#why .why-body{display:grid;grid-template-columns:minmax(0,0.95fr) minmax(560px,1.15fr);gap:1.8rem;align-items:center}
-#why .copy p{font-family:var(--fb);font-size:1.08rem;line-height:1.72;color:var(--muted)}
-#why .copy a{color:var(--gold);font-weight:600;text-decoration:underline;text-underline-offset:3px}
-#why .map{display:flex;justify-content:flex-end;padding-left:0}
-#why .map img{width:100%;max-width:900px;margin-top:-60px}
-/* ── LOCATION ──
-   Dark green band.
-   Left: label + 2-line heading.
-   Right: thin vertical divider line, then "Want to know more?" + gold button.
-*/
-#location{
-  background:var(--green);
-  display:grid;
-  grid-template-columns:1fr auto;
-  align-items:center;
-  gap:0;
-  padding:3.2rem 5%;
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-size:1.3rem;color:var(--gold);font-weight:300;margin-left:1rem;flex-shrink:0}
+details[open] summary::after{content:'–'}
+details p{font-size:.97rem;line-height:1.7;color:var(--muted);padding:.2rem 0 1.2rem}
+
+/* ── PARTICIPATION TERMS ── */
+#terms{background:var(--white)}
+.terms-box{border:1px solid var(--sand);padding:2rem;max-width:680px;margin-top:1.8rem}
+.terms-box p{font-family:var(--fh);font-size:1.5rem;color:var(--green);line-height:1.2;margin-bottom:1rem}
+.terms-box small{font-size:.93rem;color:var(--muted);line-height:1.7;display:block}
+.terms-box a{color:var(--green);font-weight:600;text-decoration:underline}
+
+/* ── FOOTER ── */
+footer{background:var(--green);color:rgba(255,255,255,.65);padding:2.5rem 5%;font-size:.82rem;line-height:1.75}
+footer strong{color:var(--white)}
+footer a{color:var(--gold)}
+
+
+/* ── v3 ── */
+/* Bebas Neue has one weight: stop browsers from faking bold (letters were merging) */
+.hero-h1,.sec-h2,.step-body h4,.what-pull,.terms-box p,.ed-dates,.hero-tagline,.btn,.f-name,.step-num,.apply-n,.programme-table th,.info-table th{font-weight:400;letter-spacing:.03em}
+.hero-h1{letter-spacing:.02em;line-height:.98}
+.sec-h2{line-height:1.05;text-wrap:balance}
+.sec-label{font-size:.95rem;letter-spacing:.2em}
+.hero-tagline{font-size:clamp(2rem,3.2vw,2.8rem);letter-spacing:.05em;margin-bottom:1.1rem}
+.ed-label{font-size:.78rem}
+.ed-dates{font-size:clamp(1.7rem,2.4vw,2.1rem)}
+.ed-deadline{font-size:.85rem}
+.step-body h4{font-size:1.55rem;margin-bottom:.35rem}
+.sec-lead strong{color:var(--text);font-weight:600}
+.btn-lg{font-size:1.35rem;padding:1.1rem 3rem;box-shadow:0 10px 24px rgba(30,58,47,.22)}
+/* hero with logo */
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:3rem;align-items:center;margin-bottom:3rem}
+.hero-grid .hero-inner{max-width:none}
+.hero-grid .hero-buttons{margin-bottom:0}
+.hero-logo{display:flex;justify-content:center}
+.hero-logo img{width:auto;max-height:440px;max-width:100%}
+/* text + illustration */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,var(--art-w,.62fr));gap:4rem;align-items:stretch}
+.split .sec-lead,.split .steps-list,.split .apply-steps,.split .faq-list{max-width:none}
+.art{position:relative;min-height:320px}
+.art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--art-pos,center);mix-blend-mode:multiply}
+#faculty .f-card{background:var(--white)}
+/* skyline above footer */
+.skyline{background:var(--cream);padding:1rem 0 0;line-height:0}
+.skyline img{width:100%;mix-blend-mode:multiply}
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-logo{display:none}
+  .split{grid-template-columns:1fr;gap:2rem}
+  .art{order:-1;height:340px;min-height:0}
 }
-#location .lbl{color:var(--gold)}
-#location .hd{font-size:clamp(1.3rem,2.5vw,2.4rem);color:var(--white)}
-.loc-right{
-  display:flex;flex-direction:column;align-items:flex-start;gap:.9rem;
-  border-left:1px solid rgba(255,255,255,.22);
-  padding-left:4rem;
-  margin-left:4rem;
-}
-.loc-right p{font-size:.95rem;color:rgba(255,255,255,.6);white-space:nowrap}
-/* ── FOOTER ──
-   Cream/off-white bg.
-   Left: logo mark + ITERA LAB text.
-   Center: LinkedIn (filled dark green circle) + Email (filled dark green circle).
-   Right: copyright.
-*/
-footer{
-  background:var(--cream);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1.4rem 5%;
-}
-.foot-logo{display:flex;align-items:center}
-.foot-icons{display:flex;gap:.7rem}
-.foot-icons a{
-  width:34px;height:34px;background:var(--green);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;color:var(--white);
-  transition:background .2s;
-}
-.foot-icons a:hover{background:var(--gold)}
-.foot-copy{font-size:.7rem;color:var(--muted)}
-/* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
-.reveal.visible{opacity:1;transform:none}
-/* ── SCROLL OFFSET ── */
-#what,#how,#lecturers,#why,#location{scroll-margin-top:0px}
-.hero-actions{display:flex;gap:20px;flex-wrap:wrap;align-items:center;width:100%}
-.hero-actions .btn{white-space:nowrap;flex:1;text-align:center;min-width:200px}
-@media(max-width:860px){.hero-actions{gap:10px}.hero-actions .btn{width:100%;text-align:center}}
+
+.f-monogram{width:100px;height:100px;font-size:1.5rem}
+.f-portrait{width:100px;height:100px;border-radius:50%;flex-shrink:0;background:var(--cream);border:2px solid var(--sand);overflow:hidden}
+.f-portrait img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply}
+.f-header{gap:1.1rem}
+
+.footer-contact{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;margin-bottom:.8rem}
+footer a.footer-btn{color:var(--white);font-size:1.05rem;padding:.7rem 1.8rem}
+footer a.footer-btn:hover{color:var(--gold)}
+.apply-contact{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.6rem}
+.btn-outline-green{background:transparent;color:var(--green)!important;border:2px solid var(--green);font-size:1.05rem;padding:.7rem 1.8rem}
+.btn-outline-green:hover{background:var(--green);color:var(--white)!important}
+.f-name{display:flex;align-items:center;gap:.5rem}
+.f-li{display:inline-flex;color:#0A66C2;transition:opacity .2s}
+.f-li:hover,.f-li:focus-visible{opacity:.7}
+.f-bio em{color:var(--gold);font-style:italic}
+.programme-table td:first-child{width:56px;text-align:center;font-size:1.25rem;color:var(--gold)}
+.mod-title{display:block;font-family:var(--fh);font-weight:400;font-size:1.25rem;letter-spacing:.03em;color:var(--green);text-transform:uppercase;line-height:1.1;margin-bottom:.35rem}
+.mod-desc{display:block;font-size:.93rem;line-height:1.6;color:var(--muted)}
+.info-col{display:flex;flex-direction:column;justify-content:space-between;gap:1.4rem;border-left:1px solid var(--green);padding-left:4rem}
+.info-col .info-table td{padding:1.05rem .9rem}
+.practical-brochures{display:flex;gap:1rem;flex-wrap:wrap;margin-top:0}
+.practical-brochures .btn{flex:1;text-align:center}
+.practical-note{display:flex;gap:1rem;align-items:flex-start;margin-top:0;background:var(--white);border:1px solid var(--sand);border-left:4px solid var(--gold);padding:1.2rem 1.4rem}
+.practical-note p{font-size:.98rem;line-height:1.6;color:var(--text);margin:0}
+.practical-note strong{color:var(--green);font-weight:600}
+.pn-mark{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--green);color:var(--gold);font-family:var(--fh);font-size:1.15rem;line-height:28px;text-align:center;letter-spacing:0}
+.footer-social{display:flex;gap:1rem;align-items:center;margin-top:1.2rem}
+.footer-social a{color:rgba(255,255,255,.7);display:inline-flex;transition:color .2s}
+.footer-social a:hover{color:var(--gold)}
 /* ── RESPONSIVE ── */
 @media(max-width:860px){
+  .info-col{border-left:none;padding-left:0;border-top:1px solid var(--green);padding-top:2rem}
+  .info-wrap{gap:2.4rem}
   nav{height:auto;padding:.75rem 5%;flex-wrap:wrap;gap:.5rem}
-  nav ul{gap:.4rem;flex-wrap:nowrap;width:100%;justify-content:space-between}
-  nav ul a{font-size:.56rem;letter-spacing:.02em;white-space:nowrap}
-  .logo-img{height:56px}
-  #what,#how,#lecturers,#why,#location{scroll-margin-top:55px}
-  #hero{grid-template-columns:1fr;padding:2.5rem 5%}
-  #what{padding:2.5rem 5%}
-  .pillars-grid{grid-template-columns:1fr;gap:1.8rem}
-  .pillar{border-right:none;border-bottom:1px solid var(--sand);padding:0 0 1.8rem!important}
-  .pillar:last-child{border-bottom:none;padding-bottom:0!important}
-  .steps{grid-template-columns:1fr;gap:1.2rem}
-  #how .how-body{grid-template-columns:1fr;gap:2rem}
-  .lect-cat-list{grid-template-columns:1fr}
-  .lect-grid{grid-template-columns:1fr}
-  #why .why-body{grid-template-columns:1fr}
-  #location{grid-template-columns:1fr;gap:2rem}
-  .loc-right{border-left:none;padding-left:0;margin-left:0;border-top:1px solid rgba(255,255,255,.22);padding-top:1.5rem}
-  footer{flex-wrap:wrap;gap:1rem;justify-content:center;text-align:center}
-  .foot-copy{width:100%;text-align:center}
+  .nav-links{gap:.8rem;flex-wrap:wrap;font-size:.65rem}
+  #hero{padding:3.5rem 5% 3rem;min-height:auto}
+  .editions{flex-direction:column}
+  .info-wrap{grid-template-columns:1fr}
+  .faculty-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .hero-buttons{flex-direction:column}
+  .hero-buttons .btn{text-align:center}
 }
 </style>
 </head>
 <body>
-<!-- ITERALAB V4 CLEAR FORMS - application links point to real form pages -->
+
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo"><img src="assets/images/img_75b46e2a3f.png" alt="IteraLab" class="logo-img"/></a>
-<ul>
-<li><a href="#what">What It Is</a></li>
-<li><a href="#how">How It Works</a></li>
-<li><a href="#lecturers">Our Lecturers</a></li>
-<li><a href="#why">Why It Matters</a></li>
-</ul>
-  
+  <a href="#"><img src="assets/images/logo-nav.webp" alt="IteraLab" class="logo-img"/></a>
+  <ul class="nav-links">
+    <li><a href="#what">What it is</a></li>
+    <li><a href="#programme">Programme</a></li>
+    <li><a href="#how-session">How it works</a></li>
+    <li><a href="#faculty">Faculty</a></li>
+    <li><a href="#practical">Dates &amp; fees</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#apply" class="nav-apply">Apply now</a></li>
+  </ul>
 </nav>
-<!-- HERO: text left, illustration right -->
+
+<!-- HERO -->
 <section id="hero">
-  <div class="hero-text reveal">
-    <h1>Learn How Europe<br><em>Really Works.</em></h1>
-    <p>Through the IteraLab Academy, you will discover in depth how policy is shaped and how hiring works — who hires, how paths into Brussels begin, and how to position yourself within that world.</p>
-<p>Our programmes are designed for those who want to transform an interest in Europe into a concrete professional trajectory: understanding how EU decisions are made, how the Brussels job market works, which profiles are valued, and how to position yourself for an internship, traineeship or junior role.</p>
-<p>Built by people with long-standing experience inside EU institutions and organisations, IteraLab gives participants direct exposure to the people, places and organisations that shape the European policy environment.</p>
-  </div>
-  <div class="hero-img reveal" style="transition-delay:.12s">
-    <img src="assets/images/img_b566f1cad6.png" alt="People meeting in Brussels"/>
-    <div class="hero-dates">
-      <p class="lbl" style="margin-bottom:1.6rem">Spring Academy 2027 — Session Weeks</p>
-      <ul>
-        <li>March 8–12</li>
-        <li>April 12–16</li>
-        <li>May 24–28</li>
-        <li>June 14–18</li>
-      </ul>
+  <div class="hero-grid">
+  <div class="hero-inner">
+    <h1 class="hero-h1">Understand Brussels.<br>Build your<br>own path.</h1>
+    <p class="hero-sub">A six-day career orientation programme in Brussels for students, recent graduates and young professionals who want to turn an interest in Europe into a concrete professional path.</p>
+    <p class="hero-tagline">Learn. Experience. Engage.</p>
+    <div class="hero-buttons">
+      <a href="#apply" class="btn btn-gold">Apply now</a>
+      <a href="assets/brochure/IteraLab-Spring-Programme-2027-EN.pdf" download="IteraLab-Spring-Programme-2027-EN.pdf" class="btn btn-outline-white">Download brochure (EN)</a>
+      <a href="assets/brochure/IteraLab-Spring-Programme-2027-IT.pdf" download="IteraLab-Spring-Programme-2027-IT.pdf" class="btn btn-outline-white">Download brochure (IT)</a>
     </div>
-    <div class="hero-actions">
-      <a href="student-application.html" class="btn btn-dark">Student Application</a>
-      <a href="mailto:nicola@iteralab.eu" class="btn btn-gold">Request Information</a>
-    </div>
-    <p style="font-size:0.85rem; color:#777;">Applications are reviewed on a rolling basis.</p>
   </div>
+    <div class="hero-logo"><img src="assets/images/logo-hero-light.webp" alt="IteraLab"/></div>
+  </div>
+    <p class="hero-label hero-label-low">Spring Programme 2027 · Brussels</p>
+    <div class="editions">
+    <div class="edition-card">
+      <div class="ed-label">Edition I</div>
+      <div class="ed-dates">12–17 April 2027</div>
+      <div class="ed-deadline">Applications close 19 Feb 2027</div>
+    </div>
+    <div class="edition-card">
+      <div class="ed-label">Edition II</div>
+      <div class="ed-dates">24–29 May 2027</div>
+      <div class="ed-deadline">Applications close 2 Apr 2027</div>
+    </div>
+    <div class="edition-card">
+      <div class="ed-label">Edition III</div>
+      <div class="ed-dates">14–19 June 2027</div>
+      <div class="ed-deadline">Applications close 23 Apr 2027</div>
+    </div>
+  </div>
+  <p class="hero-lang">The programme is delivered in Italian.</p>
 </section>
-<!-- WHAT THIS IS: heading left, copy right -->
+
+<!-- WHAT THIS IS -->
 <section id="what">
-  <div class="what-top reveal">
-    <p class="lbl">What This Is</p>
-    <h2 class="hd">Not a course. A practical introduction to <em>the Brussels ecosystem.</em></h2>
+  <div class="split" style="--art-w:.62fr;--art-pos:center 30%">
+  <div class="split-text">
+  <p class="sec-label">What it is</p>
+  <h2 class="sec-h2">Not a course.<br>A method for career orientation.</h2>
+  <p class="sec-lead"><strong>Brussels is one of the world's most important centres for public policy, regulation, interest representation, institutional communication, European journalism, EU law and access to EU funds.</strong> Yet from the outside it can appear complex, competitive and opaque: opportunities exist, but they are not always visible, and entry routes are rarely linear.</p>
+  <p class="sec-lead"><strong>IteraLab is not a course on the European institutions:</strong> it is a career orientation programme on European careers. It is built through guided first-hand accounts from professionals who work in the Brussels ecosystem every day. Every member of the Faculty follows a shared method, designed to turn personal experience into tools you can actually use.</p>
+  <p class="what-pull">We don't teach Europe.<br>We help build European careers.</p>
   </div>
-  <div class="right reveal" style="transition-delay:.1s">
-    <p>IteraLab is designed to make this professional and institutional world more readable — both as a policy environment and as a professional landscape.</p>
-    <p>Brussels is one of the world's most important centres for public policy, regulation, interest representation, institutional communication, European journalism, EU law and access to EU funds. Yet for those looking at it from the outside, it can appear complex, competitive and opaque.</p>
-    <p>IteraLab helps participants decode that system in practice. You will understand how roles are structured across EU institutions, consultancies, trade associations, NGOs, companies, law firms, public-affairs teams, media outlets and organisations working on EU funding.</p>
-    <p>You will also explore how people actually enter the field: which profiles are in demand, how recruitment works, which skills matter, and how to make choices that are coherent with the real dynamics of the Brussels market.</p>
-    <p>This is not limited to classroom learning. It is an applied experience built around direct contact with people working in the field, practical orientation, institutional visits, networking and the foundations of a long-term community.</p>
-  </div>
-</section>
-<!-- PILLARS: 3 columns, each icon-left + title/copy-right -->
-<section id="pillars">
-  <div class="pillars-grid">
-    <div class="pillar reveal">
-      <img class="pillar-icon" src="assets/images/img_269500d779.png" alt="Learn"/>
-      <h3>Learn</h3>
-      <p>Understand how the European policy landscape really works: EU institutions, consultancies, associations, NGOs, companies, media, EU funding actors, law firms and public-affairs teams — and how they interact within the Brussels landscape.</p>
-    </div>
-    <div class="pillar reveal" style="transition-delay:.1s">
-      <img class="pillar-icon" src="assets/images/img_1a12644312.png" alt="Experience"/>
-      <h3>Experience</h3>
-      <p>Go beyond formal descriptions and experience Brussels directly, through sessions, visits and exchanges with professionals working in the places where European decisions, strategies and careers take shape.</p>
-    </div>
-    <div class="pillar reveal" style="transition-delay:.2s">
-      <img class="pillar-icon" src="assets/images/img_fb4730e6b8.png" alt="Engage"/>
-      <h3>Engage</h3>
-      <p>Engage with practitioners, peers and the wider IteraLab network. The relationships built during the programme — with lecturers, fellow participants and working professionals — are often where the most useful and lasting connections begin.</p>
-    </div>
+  <div class="art"><img src="assets/images/what-it-is-stairs.webp" alt="Young participants walking up the stairs of an EU building, welcomed by a professional"/></div>
   </div>
 </section>
-<!-- HOW IT WORKS: label+heading top, then 4 steps in a row, then building illustration full-width below -->
-<section id="how">
-  <div class="how-top reveal">
-    <p class="lbl">How It Works</p>
-    <h2 class="hd">A structured immersion into the Brussels policy environment.</h2>
-    <div class="how-intro reveal" style="transition-delay:.08s"><span style="display:inline-block;padding:.45rem .8rem;border:1px solid var(--sand);background:rgba(255,255,255,.55);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--green);margin-top:.9rem">Clarity, access, and direction — not just exposure.</span></div>
-  </div>
-  <div class="how-body">
-    <div class="steps">
-      <div class="step reveal">
-        <div class="num">01</div>
-        <h4>Sessions</h4>
-        <p>Conversations with current and former EU professionals, practitioners and specialists across institutions, public affairs, advocacy, journalism, EU funding, law, communications and the private sector.</p>
+
+
+
+
+
+
+
+<!-- THE PROGRAMME -->
+<section id="programme">
+  <p class="sec-label">The programme</p>
+  <h2 class="sec-h2">Six days, ten modules.</h2>
+  <p class="sec-lead">Six days in Brussels, ten modules. Each one is led by the people who do that job every day, and covers what the work actually involves, who does it and how to get in.</p>
+  <table class="programme-table">
+    <thead><tr><th>Module</th><th>What it covers</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong class="mod-title">The European Parliament</strong><span class="mod-desc">The role and the powers of Parliament in the European legislative process. Who works there — officials, accredited and local assistants, political group staff, trainees — and how the contracts and the perspectives differ. The routes in that actually exist, and what makes an application credible.</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong class="mod-title">The Permanent Representation and the Council</strong><span class="mod-desc">How the Council works and how a member state's position is formed. The Permanent Representation: what it does, who staffs it and how it relates to national administrations.</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong class="mod-title">The European Commission</strong><span class="mod-desc">The structure: Cabinets, Directorates-General, Directorates, Units and horizontal services. The life of an initiative, from programming and consultation to impact assessment, adoption and inter-institutional negotiation, through real cases and the skills a Unit looks for. The professional profiles — AD and AST officials, contract and temporary agents, seconded national experts, trainees — and the Blue Book traineeship: requirements, length, prospects.</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong class="mod-title">EU competitions and EPSO selections</strong><span class="mod-desc">The types of selection: AD, AST, specialists, the CAST procedure for contract agents, agency selections and internal procedures. The stages of a competition: pre-selection, tests, assessment centre, reserve list. How a serious preparation is built, with real timelines and real success rates.</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong class="mod-title">Public affairs and consultancy</strong><span class="mod-desc">The Brussels consultancy market: who the players are, how large they are, how they sell. The daily work: legislative monitoring, briefings, stakeholder mapping, position papers, events. How an advocacy strategy is built and how a result is measured.</span></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><strong class="mod-title">EU head hunting and the job market</strong><span class="mod-desc">How a search is run, what makes a profile placeable and what holds it back. The market: profiles in demand, salary levels, mobility between parts of the ecosystem. How to prepare for an interview and how to negotiate an offer.</span></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><strong class="mod-title">EU funding and project design</strong><span class="mod-desc">The European programmes and how they are managed — directly, indirectly and under shared management. The anatomy of a real call: building the partnership and running the project. Who employs in this field — public bodies, agencies, consultancies, universities, NGOs — which roles they offer and how to approach them.</span></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td><strong class="mod-title">In-house lobbying: EU affairs inside a company</strong><span class="mod-desc">The European affairs office of a large group: monitoring, direct advocacy, institutional relations, events. How a corporate position is formed, and how trade associations and coalitions come into it. The profiles companies look for and the ways into an in-house EU team.</span></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td><strong class="mod-title">EU journalism and institutional communication</strong><span class="mod-desc">How a European story is built, how sources are found and how a complex file is made readable. The ways into journalism: internships, freelancing, competitions, agencies, press offices. Institutional communication: what it is for, what constrains it and how the career path differs.</span></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td><strong class="mod-title">NGOs and European civil society</strong><span class="mod-desc">The landscape of NGOs and European networks, and how they work with the institutions. How an advocacy campaign is built with limited resources. The profiles in demand and the real working conditions of the sector.</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- HOW A SESSION WORKS -->
+<section id="how-session">
+  <div class="split" style="--art-w:.62fr;--art-pos:center 60%">
+  <div class="split-text">
+  <p class="sec-label">How a session works</p>
+  <h2 class="sec-h2">Every session follows<br>a five-part structure.</h2>
+  <p class="sec-lead">It is what makes the programme a method rather than a series of talks.</p>
+  <div class="steps-list">
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>The speaker's professional story</h4>
+        <p>Studies, first jobs, arriving in Brussels, career choices, obstacles met and chances taken: real paths, rarely linear.</p>
       </div>
-      <div class="step reveal" style="transition-delay:.08s">
-        <div class="num">02</div>
-        <h4>Workshops</h4>
-        <p>Focused sessions to understand how to enter the Brussels job market: recruitment dynamics, required profiles, application strategies, positioning, networking and career planning.</p>
-      </div>
-      <div class="step reveal" style="transition-delay:.16s">
-        <div class="num">03</div>
-        <h4>Visits</h4>
-        <p>Direct exposure to the places where the EU policy environment operates: EU institutions, consultancies, associations, NGOs, companies, media environments and relevant organisations.</p>
-      </div>
-      <div class="step reveal" style="transition-delay:.24s">
-        <div class="num">04</div>
-        <h4>Community</h4>
-        <p>IteraLab is designed to have a life beyond the programme. Alumni connections, shared experiences and a growing network of peers and practitioners become a long-term resource — professionally and personally.</p>
+    </div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>How the sector really works</h4>
+        <p>The current role, daily responsibilities, counterparts and files — with a practical case whenever possible.</p>
       </div>
     </div>
-    <div class="bld reveal" style="transition-delay:.3s">
-      <img src="assets/images/img_658dcf5725.png" alt="Brussels institutions illustration"/>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>What recruiters look for</h4>
+        <p>The technical and soft skills expected of a junior profile, and the most common mistakes in applications.</p>
+      </div>
     </div>
+    <div class="step-row">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Practical advice</h4>
+        <p>CVs, motivation letters, LinkedIn, interviews, applications, networking and first professional steps.</p>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h4>Questions and open discussion</h4>
+        <p>Roughly one third of every session is reserved for a direct exchange with participants.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="art"><img src="assets/images/how-session-auditorium.webp" alt="A speaker addressing participants in a Brussels auditorium"/></div>
   </div>
 </section>
-<!-- OUR LECTURERS: label+heading top, intro copy + speaker categories, then lecturer cards (placeholders until profiles are confirmed) -->
-<section id="lecturers">
-  <div class="lect-top reveal">
-    <p class="lbl">Our Lecturers</p>
-    <h2 class="hd">Learn from the people who work inside EU institutions and organisations.</h2>
-  </div>
-  <div class="lect-intro reveal" style="transition-delay:.08s">
-    <p>IteraLab lecturers are EU professionals with direct experience in the institutions, NGOs, European associations, public-affairs agencies, EU journalism, EU funding, law, advocacy, strategic communications, policy analysis and the private sector.</p>
-    <p>They bring participants beyond formal descriptions of European careers and into the reality of how Brussels works: how decisions are prepared, how organisations influence policy, how information circulates, how opportunities emerge, and how young professionals can build credible paths into this world.</p>
-    <p class="lect-cat-label">Our speakers include professionals from:</p>
-    <ul class="lect-cat-list">
-      <li>EU institutions and former institutional officials</li>
-      <li>NGOs and civil-society organisations</li>
-      <li>European associations and interest-representation bodies</li>
-      <li>Public-affairs, advocacy and lobbying agencies</li>
-      <li>EU journalism and Brussels-based media</li>
-      <li>EU funding and project-development specialists</li>
-      <li>Law firms, consultancies and strategic communications experts</li>
-      <li>Private companies and in-house public-policy teams</li>
-    </ul>
-  </div>
-  <p class="lbl" style="margin-top:2.4rem;margin-bottom:1rem">A Selection of Our Faculty</p>
-  <div class="lect-grid">
-    <div class="lect-card reveal">
-      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
-      <p class="lect-tag">Profile coming soon</p>
-      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+
+<!-- FACULTY -->
+<section id="faculty">
+  <p class="sec-label">The Faculty</p>
+  <h2 class="sec-h2">Learn from the people who work<br>inside the European ecosystem.</h2>
+  <p class="sec-lead">The IteraLab Faculty is composed of senior practitioners in their respective fields. They contribute to the programme alongside their professional activity — as speakers in the modules, or by taking part in the networking moments — and are invited edition by edition: the composition varies, the standard does not.</p>
+  <p class="sec-lead">Each edition is built around ten modules: the brochure sets out the programme and the speakers confirmed for it.</p>
+  <div class="faculty-grid">
+
+    <div class="f-card">
+      <div class="f-header">
+        <div class="f-portrait"><img src="assets/images/faculty-alagna.webp" alt="Alfredo Alagna"/></div>
+        <div>
+          <div class="f-name">Alfredo Alagna <a class="f-li" href="https://www.linkedin.com/in/alfredo-alagna-23534a10/" target="_blank" rel="noopener" aria-label="Alfredo Alagna on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+          <div class="f-role">Co-founder of IteraLab · former official, DG COMM, European Parliament</div>
+        </div>
+      </div>
+      <p class="f-bio">He worked at the European Parliament for more than twenty-five years, first as a parliamentary assistant and then as an official in the Directorate-General for Communication, on information, communication and on projects and events aimed at students and young professionals. That experience is part of where the idea for IteraLab came from.</p>
     </div>
-    <div class="lect-card reveal">
-      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
-      <p class="lect-tag">Profile coming soon</p>
-      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+
+    <div class="f-card">
+      <div class="f-header">
+        <div class="f-portrait"><img src="assets/images/faculty-mussini.webp" alt="Matteo Mussini"/></div>
+        <div>
+          <div class="f-name">Matteo Mussini <a class="f-li" href="https://www.linkedin.com/in/matteo-mussini-6bb8a8100/" target="_blank" rel="noopener" aria-label="Matteo Mussini on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+          <div class="f-role">Co-founder of IteraLab · Founding Partner, MUST &amp; Partners</div>
+        </div>
+      </div>
+      <p class="f-bio">Co-founder of a Brussels-based strategic consultancy working in public affairs and institutional relations between Italy and the EU. Educated at the London School of Economics, he supports companies and organisations in reading European decision-making.</p>
     </div>
-    <div class="lect-card reveal">
-      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
-      <p class="lect-tag">Profile coming soon</p>
-      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+
+    <div class="f-card">
+      <div class="f-header">
+        <div class="f-portrait"><img src="assets/images/faculty-mattino.webp" alt="Giacomo Mattinò"/></div>
+        <div>
+          <div class="f-name">Giacomo Mattinò <a class="f-li" href="https://www.linkedin.com/in/giacomo-mattino-61ab315/" target="_blank" rel="noopener" aria-label="Giacomo Mattinò on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+          <div class="f-role">Independent consultant · former Head of Unit, European Commission</div>
+        </div>
+      </div>
+      <p class="f-bio">He spent more than thirty years as a permanent official of the European Commission, in the Directorate-General for Internal Market, Industry, Entrepreneurship and SMEs, close to fifteen of them in management roles, alongside work of growing responsibility in human resources. He now advises independently as a strategic management consultant.</p>
     </div>
-    <div class="lect-card reveal">
-      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
-      <p class="lect-tag">Profile coming soon</p>
-      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+
+    <div class="f-card">
+      <div class="f-header">
+        <div class="f-portrait"><img src="assets/images/faculty-franza.webp" alt="Marco Franza"/></div>
+        <div>
+          <div class="f-name">Marco Franza <a class="f-li" href="https://www.linkedin.com/in/marco-franza-936132/" target="_blank" rel="noopener" aria-label="Marco Franza on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+          <div class="f-role">Energy and atomic questions expert, Permanent Representation of Italy to the EU</div>
+        </div>
+      </div>
+      <p class="f-bio">He has been the energy and atomic questions expert at the Italian Permanent Representation to the EU since 2023. He spent almost nine years at the European Commission, first as a seconded national expert at the energy directorate, and was Italy's delegate to the Nuclear Law Committee of the OECD Nuclear Energy Agency. He is a senior officer of ENEA.</p>
     </div>
-    <div class="lect-card reveal">
-      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
-      <p class="lect-tag">Profile coming soon</p>
-      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+
+    <div class="f-card">
+      <div class="f-header">
+        <div class="f-portrait"><img src="assets/images/faculty-abbafati.webp" alt="Annamaria Abbafati"/></div>
+        <div>
+          <div class="f-name">Annamaria Abbafati <a class="f-li" href="https://www.linkedin.com/in/annamaria-abbafati-057261111/" target="_blank" rel="noopener" aria-label="Annamaria Abbafati on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+          <div class="f-role">Partner, MUST &amp; Partners</div>
+        </div>
+      </div>
+      <p class="f-bio">She leads the policy department of a Brussels-based public affairs consultancy, coordinating the firm's main portfolios with a particular focus on digital files. Before moving into European public affairs she worked on social issues, coordinating a civic movement and a local association. She works in Italian, English and French.</p>
     </div>
-    <div class="lect-card reveal">
-      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
-      <p class="lect-tag">Profile coming soon</p>
-      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+
+    <div class="f-card">
+      <div class="f-header">
+        <div class="f-portrait"><img src="assets/images/faculty-zangrandi.webp" alt="Roberto Zangrandi"/></div>
+        <div>
+          <div class="f-name">Roberto Zangrandi <a class="f-li" href="https://www.linkedin.com/in/roberto-zangrandi-46baab/" target="_blank" rel="noopener" aria-label="Roberto Zangrandi on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+          <div class="f-role">Partner, Hightech Partners · former Secretary General, E.DSO</div>
+        </div>
+      </div>
+      <p class="f-bio">Partner at a Brussels-based executive search firm recruiting profiles in advanced technology and general management. Former Secretary General of E.DSO and head of Enel Group's European public affairs. His career also includes twelve years at Fiat and fifteen in economic journalism.</p>
     </div>
-    <div class="lect-card reveal">
-      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
-      <p class="lect-tag">Profile coming soon</p>
-      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+
+    <div class="f-card">
+      <div class="f-header">
+        <div class="f-portrait"><img src="assets/images/faculty-costantino.webp" alt="Lorenzo Costantino"/></div>
+        <div>
+          <div class="f-name">Lorenzo Costantino <a class="f-li" href="https://www.linkedin.com/in/lorenzo-costantino-737892a3/" target="_blank" rel="noopener" aria-label="Lorenzo Costantino on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+          <div class="f-role">Senior Partner, IDP European Consultants</div>
+        </div>
+      </div>
+      <p class="f-bio">He is Senior Partner at IDP, a consulting and training firm specialised in EU funding programmes and financial instruments. An expert in European project design since 1992, he has served as external expert and evaluator for the European Commission, and advised the World Bank for fifteen years on entrepreneurship, innovation and private sector development.</p>
     </div>
-    <div class="lect-card reveal">
-      <div class="lect-photo"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
-      <p class="lect-tag">Profile coming soon</p>
-      <p class="lect-soon-copy">Name, role and photo to be announced.</p>
+
+    <div class="f-card">
+      <div class="f-header">
+        <div class="f-portrait"><img src="assets/images/faculty-panico.webp" alt="Roberto Panico"/></div>
+        <div>
+          <div class="f-name">Roberto Panico <a class="f-li" href="https://www.linkedin.com/in/roberto-panico-a3018931/" target="_blank" rel="noopener" aria-label="Roberto Panico on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+          <div class="f-role">Head of EU External Relations, Terna</div>
+        </div>
+      </div>
+      <p class="f-bio">From Brussels he leads the European institutional relations of Italy's electricity transmission operator, and sits on the board of APRII. He previously spent eleven years with the Eni group, where he was head of relations with the European Parliament.</p>
     </div>
+
+    <div class="f-card">
+      <div class="f-header">
+        <div class="f-portrait"><img src="assets/images/faculty-basso.webp" alt="Francesca Basso"/></div>
+        <div>
+          <div class="f-name">Francesca Basso <a class="f-li" href="https://www.linkedin.com/in/francesca-basso-16045735b/" target="_blank" rel="noopener" aria-label="Francesca Basso on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+          <div class="f-role">Brussels correspondent, Corriere della Sera</div>
+        </div>
+      </div>
+      <p class="f-bio">She covers the institutional, political and economic dynamics of the European Union from Brussels for Corriere della Sera. She writes the column «Lettere da Bruxelles» for L'Economia and is the author of the book «L'Europa in 80 domande».</p>
+    </div>
+
+    <div class="f-card">
+      <div class="f-header">
+        <div class="f-portrait"><img src="assets/images/faculty-stella.webp" alt="Luciano Stella"/></div>
+        <div>
+          <div class="f-name">Luciano Stella <a class="f-li" href="https://www.linkedin.com/in/luciano-stella-9671136/" target="_blank" rel="noopener" aria-label="Luciano Stella on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+          <div class="f-role">Founding Partner, MUST &amp; Partners</div>
+        </div>
+      </div>
+      <p class="f-bio">He founded MUST &amp; Partners in 2014 and has more than twenty years of experience in European affairs, having started in Brussels as a staffer at the European Parliament. He teaches European lobbying in several Italian universities and institutes, and serves as Vice-President of APRII.</p>
+    </div>
+
+    <div class="f-card">
+      <div class="f-header">
+        <div class="f-portrait"><img src="assets/images/faculty-demarte.webp" alt="Raffaella De Marte"/></div>
+        <div>
+          <div class="f-name">Raffaella De Marte <a class="f-li" href="https://www.linkedin.com/in/raffaella-de-marte-b696905a/" target="_blank" rel="noopener" aria-label="Raffaella De Marte on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+          <div class="f-role">Head of the Services and Media Unit, European Parliament</div>
+        </div>
+      </div>
+      <p class="f-bio">She has headed the European Parliament's Services and Media Unit since 2018, after an internal career as editorial coordinator, press officer and web manager for the President. She arrived in Brussels in 2004, working in the Council's press office, then for Members of the Parliament, and from 2007 to 2012 as Policy Adviser at CER.</p>
+    </div>
+
+    <div class="f-card">
+      <div class="f-header">
+        <div class="f-portrait"><img src="assets/images/faculty-corrao.webp" alt="Ignazio Corrao"/></div>
+        <div>
+          <div class="f-name">Ignazio Corrao <a class="f-li" href="https://www.linkedin.com/in/ignaziocorrao/" target="_blank" rel="noopener" aria-label="Ignazio Corrao on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+          <div class="f-role">Senior Policy &amp; Advocacy Manager, FEBA · former MEP</div>
+        </div>
+      </div>
+      <p class="f-bio">He leads the policy and advocacy department of the European Food Banks Federation in Brussels, coordinating its advocacy strategy and institutional relations. A lawyer, he served two terms as a Member of the European Parliament from 2014 to 2024, working on human rights, development cooperation, industry and energy. He also led the EU&rsquo;s Election Observation Mission to Lesotho as Chief Observer.</p>
+    </div>
+
+    <div class="f-card">
+      <div class="f-header">
+        <div class="f-portrait"><img src="assets/images/faculty-mazzola.webp" alt="Alberto Mazzola"/></div>
+        <div>
+          <div class="f-name">Alberto Mazzola <a class="f-li" href="https://www.linkedin.com/in/alberto-mazzola-cer/" target="_blank" rel="noopener" aria-label="Alberto Mazzola on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+          <div class="f-role">Executive Director, CER &mdash; Community of European Railway and Infrastructure Companies</div>
+        </div>
+      </div>
+      <p class="f-bio">He has led CER, the association of European railway and infrastructure companies, since 2021, representing the sector before the EU institutions. Before that he spent almost twenty years at Ferrovie dello Stato Italiane, latterly as head of international government affairs in Brussels, and earlier worked in the international business division of Leonardo Finmeccanica. He also sits on the European Economic and Social Committee's consultative commission on industrial change.</p>
+    </div>
+
   </div>
 </section>
-<!-- WHY IT MATTERS: heading top, then copy + map -->
-<section id="why">
-  <div class="why-top reveal">
-    <p class="lbl">Why It Matters</p>
-    <h2 class="hd">Proximity changes trajectories.</h2>
+
+
+
+<!-- PRACTICAL INFO -->
+<section id="practical">
+  <p class="sec-label">Practical information</p>
+  <h2 class="sec-h2">Everything you need to know.</h2>
+  <div class="info-wrap">
+    <table class="info-table">
+      <tbody>
+        <tr><td>Duration</td><td>Six days, Monday to Saturday</td></tr>
+        <tr><td>Language</td><td>Italian</td></tr>
+        <tr><td>Location</td><td>Brussels, European quarter</td></tr>
+        <tr><td>Group size</td><td>16 to 25 participants</td></tr>
+        <tr><td>Fee</td><td><strong>€ 1,370 per person, VAT included</strong></td></tr>
+        <tr><td>Included</td><td>All ten modules, programme materials and two networking moments</td></tr>
+        <tr><td>Not included</td><td>Travel, accommodation and meals</td></tr>
+      </tbody>
+    </table>
+    <div class="info-col">
+      <table class="info-table">
+        <thead><tr><th>Edition</th><th>Dates</th><th>Deadline to apply</th></tr></thead>
+        <tbody>
+          <tr><td>Edition I</td><td>12–17 April 2027</td><td>19 Feb 2027</td></tr>
+          <tr><td>Edition II</td><td>24–29 May 2027</td><td>2 Apr 2027</td></tr>
+          <tr><td>Edition III</td><td>14–19 June 2027</td><td>23 Apr 2027</td></tr>
+        </tbody>
+      </table>
+      <div class="practical-brochures">
+        <a href="assets/brochure/IteraLab-Spring-Programme-2027-EN.pdf" download="IteraLab-Spring-Programme-2027-EN.pdf" class="btn btn-outline-green">Download brochure (EN)</a>
+        <a href="assets/brochure/IteraLab-Spring-Programme-2027-IT.pdf" download="IteraLab-Spring-Programme-2027-IT.pdf" class="btn btn-outline-green">Download brochure (IT)</a>
+      </div>
+      <div class="practical-note"><span class="pn-mark">!</span><p>Admission is decided on the merit of the application. Places on each edition are limited, so the date of submission is taken into account as well: <strong>applying early gives the strongest chance of a place.</strong></p></div>
+    </div>
   </div>
-  <div class="why-body">
-    <div class="copy reveal">
-      <p>Understanding Europe requires more than institutional theory. It requires understanding how policy is shaped in practice, how roles are defined, how organisations interact, and how people find and build their place within that environment.</p>
-      <p>For many students and young professionals, Brussels remains difficult to read from the outside. Opportunities exist, but they are not always visible. Career paths are rarely linear. The most useful information is often not found in university programmes, institutional websites or formal job descriptions.</p>
-      <p>IteraLab exists to close that gap.</p>
-      <p>By giving participants early access to the right knowledge, the right people and the right interpretation of the system, IteraLab helps them move with greater awareness, method, credibility and confidence.</p>
-      <p>The value of the experience is not only in the programme content. It lies in direct access to people, places, experiences and information that normally take years to understand — and in the creation of a lasting bridge between talent, ambition and opportunity.</p>
+
+</section>
+
+<!-- HOW TO APPLY -->
+<section id="apply">
+  <div class="split" style="--art-w:.75fr;--art-pos:center">
+  <div class="split-text">
+  <p class="sec-label">How to apply</p>
+  <h2 class="sec-h2">Three steps.</h2>
+  <div class="apply-steps">
+    <div class="apply-step">
+      <div class="apply-n">1</div>
+      <p>Fill in the application form. It takes about fifteen minutes. A CV is welcome but not required at this stage.</p>
     </div>
-    <div class="map reveal" style="transition-delay:.12s">
-      <img src="assets/images/img_efa7e894f0.png" alt="Europe network map"/>
+    <div class="apply-step">
+      <div class="apply-n">2</div>
+      <p>We review applications on a rolling basis until the deadline for the edition you choose, and we get back to every applicant within 15 days from the submission of the application form.</p>
     </div>
+    <div class="apply-step">
+      <div class="apply-n">3</div>
+      <p>If your application is successful, our team will get in touch with you with everything you need to know to confirm your place.</p>
+    </div>
+  </div>
+  <div style="margin-top:2.4rem">
+    <a href="student-application.html" target="_blank" rel="noopener" class="btn btn-green btn-lg">Apply now</a>
+  </div>
+  <div class="apply-contact"><span>Questions before applying? We answer every message.</span> <a class="btn btn-outline-green" target="_blank" rel="noopener" href="mailto:nicola@iteralab.eu?subject=IteraLab%20%E2%80%93%20Question%20before%20applying">Contact us</a></div>
+  </div>
+  <div class="art"><img src="assets/images/how-to-apply-online.webp" alt="A young woman filling in the application online, with the European Quarter outside the window"/></div>
   </div>
 </section>
-<!-- LOCATION: heading left | divider | want to know more + button right -->
-<div id="location">
-  <div class="reveal">
-    <p class="lbl">Location</p>
-    <h2 class="hd">Based in Brussels.<br>Close to the institutions, firms and networks that shape Europe's professional landscape.</h2>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="split" style="--art-w:.9fr;--art-pos:40% center">
+  <div class="split-text">
+  <p class="sec-label">Frequently asked questions</p>
+  <h2 class="sec-h2">Common questions.</h2>
+  <div class="faq-list">
+    <details>
+      <summary>Is the programme in Italian or in English?</summary>
+      <p>The programme is delivered in Italian. Sessions, materials and discussions are in Italian, although several of the organisations and topics discussed work in English. This website is in English so that the programme is findable, but you should be comfortable following six days of content in Italian.</p>
+    </details>
+    <details>
+      <summary>Do I need previous experience in EU affairs?</summary>
+      <p>No. The programme is designed for people who are approaching the European ecosystem, not for those who already work in it. Curiosity and a genuine interest in building a European career matter more than your CV.</p>
+    </details>
+    <details>
+      <summary>Can I apply if I am still studying?</summary>
+      <p>Yes. Most participants are Master's students, recent graduates or young professionals in their first years of work.</p>
+    </details>
+    <details>
+      <summary>What does the fee include?</summary>
+      <p>The € 1,370 fee covers the ten modules of the programme, the materials and the two networking moments. Travel, accommodation and meals are not included and are arranged by participants.</p>
+    </details>
+    <details>
+      <summary>Where will I stay?</summary>
+      <p>Accommodation is not included and each participant books their own. To make it easier, we send admitted participants a list of hostels, budget hotels and short-stay options within reach of the European quarter. Brussels in spring fills up quickly, so booking early is worth it.</p>
+    </details>
+    <details>
+      <summary>When do I pay, and what if I change my mind?</summary>
+      <p>A deposit of € 370 is due within 7 days of the confirmation of admission, and the balance of € 1,000 no later than 21 days before the start. You can withdraw within 14 days of confirmation and get everything back, deposit included. After that, our cancellation terms apply.</p>
+    </details>
+    <details>
+      <summary>What happens after I apply?</summary>
+      <p>You will receive a confirmation email immediately, and an answer on your application within two weeks. If you are admitted, we send the payment details and the practical information pack.</p>
+    </details>
   </div>
-  <div class="loc-right reveal">
-    <p>Do you have questions?</p>
-    <a href="mailto:nicola@iteralab.eu" class="btn btn-gold">Request Information</a>
   </div>
-</div>
-<!-- FOOTER: logo left, social icons center, copyright right -->
+  <div class="art"><img src="assets/images/faq-signpost.webp" alt="A young man at a signpost in Brussels"/></div>
+  </div>
+</section>
+
+
+
+<!-- SKYLINE -->
+<div class="skyline"><img src="assets/images/footer-skyline.webp" alt="Brussels skyline"/></div>
+
+<!-- FOOTER -->
 <footer>
-  <a href="#hero" class="foot-logo"><img src="assets/images/img_75b46e2a3f.png" alt="IteraLab" class="logo-img foot-logo-img"/></a>
-  <div class="foot-icons">
-    <a href="mailto:nicola@iteralab.eu" title="Email">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-    </a>
-  </div>
-  <span class="foot-copy">© 2026 IteraLab. All rights reserved.</span>
+  <p class="footer-contact"><a class="btn btn-gold footer-btn" target="_blank" rel="noopener" href="mailto:nicola@iteralab.eu?subject=IteraLab%20%E2%80%93%20Information%20request">Contact us</a> <a href="https://www.iteralab.eu">www.iteralab.eu</a></p>
+  <p class="footer-social">
+    <a class="foot-soc" href="https://www.linkedin.com/company/115857077/" target="_blank" rel="noopener" aria-label="IteraLab on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+    <a class="foot-soc" href="https://www.facebook.com/1339938202531213" target="_blank" rel="noopener" aria-label="IteraLab on Facebook" title="Facebook"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg></a>
+    <a class="foot-soc" href="https://www.instagram.com/iteralab.eu/" target="_blank" rel="noopener" aria-label="IteraLab on Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.71 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.71-1.46-1.38-2.13C21.32 1.35 20.65.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></a>
+  </p>
+  <p style="margin-top:.4rem;font-size:.76rem;color:rgba(255,255,255,.35)">Privacy policy · Cookie policy · © 2026 IteraLab</p>
 </footer>
-<script>
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
-},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
+
 </body>
 </html>
