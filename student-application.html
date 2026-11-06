@@ -185,5 +185,31 @@ footer{
   © 2026 IteraLab. All rights reserved. · <a href="privacy.html" style="color:inherit">Privacy policy</a>
 </footer>
 
+<script>
+/* v70: porta i parametri utm_ dell'indirizzo sui link interni del sito, fino al modulo di candidatura.
+   Niente cookie, localStorage o sessionStorage: copia solo la query string da un link all'altro. */
+(function(){
+  var q=new URLSearchParams(location.search),k=[];
+  q.forEach(function(v,n){if(/^utm_/i.test(n))k.push([n,v]);});
+  if(!k.length)return;
+  document.querySelectorAll('a[href]').forEach(function(a){
+    var h=a.getAttribute('href');
+    if(!h||h.charAt(0)==='#'||/^(mailto:|tel:|javascript:)/i.test(h))return;
+    var u;try{u=new URL(h,location.href);}catch(e){return;}
+    if(u.origin!==location.origin)return;
+    if(!/(\.html?$|\/$)/i.test(u.pathname))return;
+    k.forEach(function(p){if(!u.searchParams.has(p[0]))u.searchParams.set(p[0],p[1]);});
+    a.setAttribute('href',u.pathname.replace(/^\//,'')+u.search+u.hash);
+  });
+  document.querySelectorAll('iframe[data-tally-src]').forEach(function(f){
+    ['tallySrc'].concat(f.getAttribute('src')?['src']:[]).forEach(function(at){
+      var v=at==='src'?f.getAttribute('src'):f.dataset.tallySrc,u;
+      try{u=new URL(v);}catch(e){return;}
+      k.forEach(function(p){if(!u.searchParams.has(p[0]))u.searchParams.set(p[0],p[1]);});
+      if(at==='src')f.setAttribute('src',u.toString());else f.dataset.tallySrc=u.toString();
+    });
+  });
+})();
+</script>
 </body>
 </html>
