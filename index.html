@@ -227,6 +227,13 @@ footer a{color:var(--gold)}
 .hero-grid .hero-buttons{margin-bottom:0}
 .hero-logo{display:flex;justify-content:center}
 .hero-logo img{width:auto;max-height:440px;max-width:100%}
+.hero-logo{flex-direction:column;align-items:center;gap:1.6rem}
+.hero-event{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.3rem;border:1px solid rgba(193,170,140,.55);padding:1rem 1.6rem;min-width:240px;transition:border-color .2s,background .2s}
+.hero-event:hover,.hero-event:focus-visible{border-color:var(--gold);background:rgba(255,255,255,.05)}
+.he-label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.he-date{font-family:var(--fh);font-weight:400;font-size:1.7rem;letter-spacing:.03em;line-height:1.05;color:var(--white)}
+.he-time{font-size:.82rem;color:rgba(255,255,255,.7)}
+.he-cta{margin-top:.35rem;font-family:var(--fh);font-size:1.15rem;letter-spacing:.1em;color:var(--gold)}
 /* text + illustration */
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,var(--art-w,.62fr));gap:4rem;align-items:stretch}
 .split .sec-lead,.split .steps-list,.split .apply-steps,.split .faq-list{max-width:none}
@@ -303,6 +310,7 @@ footer a.footer-btn:hover{color:var(--gold)}
 .vmodal-play svg{width:42%;height:42%;margin-left:8%;fill:var(--green)}
 .vmodal-poster:hover .vmodal-play{background:var(--white)}
 .vmodal-cap{color:rgba(255,255,255,.75);font-size:.85rem;text-align:center;margin-top:.9rem}
+@media(max-width:860px){.hero-logo{display:flex;align-items:flex-start}.hero-logo img{display:none}.hero-event{align-items:flex-start;text-align:left;width:100%}}
 </style>
 </head>
 <body>
@@ -335,7 +343,14 @@ footer a.footer-btn:hover{color:var(--gold)}
       <a href="https://youtu.be/t_oI6kEd5yU" class="btn btn-outline-white btn-video" data-video="t_oI6kEd5yU" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M10 7.8v8.4l6.6-4.2z" fill="#1B402C"/></svg>Watch the video (1 min)</a>
     </div>
   </div>
-    <div class="hero-logo"><img src="assets/images/logo-hero-light.webp" alt="IteraLab"/></div>
+    <div class="hero-logo"><img src="assets/images/logo-hero-light.webp" alt="IteraLab"/>
+      <a class="hero-event" href="https://tally.so/r/1WPzN1?utm_source=website&amp;utm_campaign=hero" target="_blank" rel="noopener">
+        <span class="he-label">Online info session</span>
+        <span class="he-date">Wednesday 2 December</span>
+        <span class="he-time">17:30–18:30 Brussels time · in Italian</span>
+        <span class="he-cta">Sign up &rarr;</span>
+      </a>
+    </div>
   </div>
     <p class="hero-label hero-label-low">Spring Programme 2027 · Brussels</p>
     <div class="editions">
